@@ -317,6 +317,7 @@ GameObject:
   - component: {fileID: 855657001}
   - component: {fileID: 855657000}
   - component: {fileID: 855656999}
+  - component: {fileID: 855657004}
   m_Layer: 0
   m_Name: Triangle (1)
   m_TagString: Untagged
@@ -442,6 +443,76 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &855657004
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 855656998}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1001 &1037410893
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4499309688608202, guid: ff524563b00afcf428c60792548c0c15, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.4828564
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499309688608202, guid: ff524563b00afcf428c60792548c0c15, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.158464
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499309688608202, guid: ff524563b00afcf428c60792548c0c15, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 89.990234
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499309688608202, guid: ff524563b00afcf428c60792548c0c15, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499309688608202, guid: ff524563b00afcf428c60792548c0c15, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499309688608202, guid: ff524563b00afcf428c60792548c0c15, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499309688608202, guid: ff524563b00afcf428c60792548c0c15, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499309688608202, guid: ff524563b00afcf428c60792548c0c15, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114527290084923152, guid: ff524563b00afcf428c60792548c0c15,
+        type: 2}
+      propertyPath: player1
+      value: 
+      objectReference: {fileID: 1380250742}
+    - target: {fileID: 114527290084923152, guid: ff524563b00afcf428c60792548c0c15,
+        type: 2}
+      propertyPath: player2
+      value: 
+      objectReference: {fileID: 855657004}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ff524563b00afcf428c60792548c0c15, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1380250736
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,6 +525,7 @@ GameObject:
   - component: {fileID: 1380250739}
   - component: {fileID: 1380250738}
   - component: {fileID: 1380250737}
+  - component: {fileID: 1380250742}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Untagged
@@ -579,3 +651,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1380250742
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1380250736}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 63d49fa74d05aa24f9fa37f485c7df85, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

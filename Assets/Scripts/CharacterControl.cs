@@ -253,7 +253,12 @@ public class CharacterControl : MonoBehaviour
             case PlayerNumber.PLAYER_TWO:
                 {
 
+                    if (Input.GetButtonDown("DropPancake2") && collision.tag == "Pancake")
+                    {
 
+                        heldItem = collision.gameObject;
+
+                    }
                     break;
                 }
 
