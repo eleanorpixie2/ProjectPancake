@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts;
 
-public class CharacterController : MonoBehaviour
+public class CharacterControl : MonoBehaviour
 {
 
     [SerializeField]
@@ -34,7 +34,14 @@ public class CharacterController : MonoBehaviour
     void InputHandler()
     {
 
-        switch(playerNum)
+        // 
+        Quaternion lockRotaion = this.transform.rotation;
+        lockRotaion.z = 0;
+
+        //
+        this.transform.rotation = lockRotaion;
+
+        switch (playerNum)
         {
 
             case PlayerNumber.PLAYER_ONE:
@@ -44,7 +51,20 @@ public class CharacterController : MonoBehaviour
                     float yInput = Input.GetAxis("Player1MoveY");
 
                     this.transform.position += new Vector3(xInput, yInput, 0) * characterSpeed  * Time.deltaTime;
-                    Debug.Log(new Vector3(xInput, yInput, 0) * characterSpeed * Time.deltaTime);
+
+                    if (Input.GetAxis("DropPancake1") != 0)
+                    {
+
+                        Debug.Log("P1");
+
+                    }
+
+                    if ((int)Input.GetAxis("Interact1") != 0)
+                    {
+
+
+
+                    }
 
                     break;
                 }
@@ -54,7 +74,41 @@ public class CharacterController : MonoBehaviour
                     float xInput = Input.GetAxis("Player2MoveX");
                     float yInput = Input.GetAxis("Player2MoveY");
 
-                    thisRigidBody.AddForce(new Vector2(xInput, yInput));
+                    this.transform.position += new Vector3(xInput, yInput, 0) * characterSpeed * Time.deltaTime;
+
+                    if (Input.GetAxis("DropPancake2") != 0)
+                    {
+
+                        Debug.Log("P2");
+
+                    }
+
+                    if ((int)Input.GetAxis("Interact2") != 0)
+                    {
+
+
+
+                    }
+
+                    break;
+                }
+
+        }
+
+
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        switch(collision.gameObject.tag)
+        {
+
+            case "Pancake":
+                {
+
+                    
 
                     break;
                 }

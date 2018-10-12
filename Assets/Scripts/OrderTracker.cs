@@ -6,27 +6,34 @@ using UnityEngine.UI;
 public class OrderTracker : MonoBehaviour {
 
     // Inspector fields for player counter ui texts.
+    [Header("Successful Orders")]
     [SerializeField]
     private Text[] playerSuccessCounters;
+    [Header("Failed Orders")]
     [SerializeField]
     private Text[] playerFailureCounters;
 
     // Counters.
-    private int[] orderCompletions;
-    private int[] orderFailures;
+    private int[] orderCompletions { get; set; }
+    private int[] orderFailures { get; set; }
+
+    // Testing.
+    [Header("Testing")]
+    [SerializeField]
+    private bool test;
 
     public void CompletedOrder (int player)
     {
         // Update order completions.
         orderCompletions[player]++;
-        playerSuccessCounters[player].text = orderCompletions[player].ToString();
+        playerSuccessCounters[player].text = "Completed: " + orderCompletions[player].ToString();
     }
 
     public void MissedOrder (int player)
     {
         // Update order failures.
         orderFailures[player]++;
-        playerFailureCounters[player].text = orderCompletions[player].ToString();
+        playerFailureCounters[player].text = "Missed: " + orderCompletions[player].ToString();
     }
 
     private void Start()
@@ -36,22 +43,19 @@ public class OrderTracker : MonoBehaviour {
         orderFailures = new int[playerSuccessCounters.Length];
     }
 
-
-
-
-    // Testing only.
+    //Testing only.
     float lastHit = 0;
     private void Update()
     {
-        if (Time.time - 1 > lastHit)
+        if (test && Time.time - 1 > lastHit)
         {
             lastHit = Time.time;
 
+            // Increment all counters.
             CompletedOrder(0);
             CompletedOrder(1);
-
-            MissedOrder(1);
             MissedOrder(0);
+            MissedOrder(1);
         }
     }
 }
