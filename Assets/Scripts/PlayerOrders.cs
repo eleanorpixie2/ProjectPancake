@@ -57,7 +57,7 @@ public class PlayerOrders : MonoBehaviour {
         orderIndex = i;
         for(int n=0; n<OrderManager.pancakeOrders[i].Count;n++)
         {
-           if(eachOrderHas[i])
+           if(eachOrderHas[n])
             {
                 if(n==0)
                 {
