@@ -19,14 +19,14 @@ public class OrderTracker : MonoBehaviour {
     {
         // Update order completions.
         orderCompletions[player]++;
-        playerSuccessCounters[player].text = orderCompletions[player].ToString();
+        playerSuccessCounters[player].text = "Completed: " + orderCompletions[player].ToString();
     }
 
     public void MissedOrder (int player)
     {
         // Update order failures.
         orderFailures[player]++;
-        playerFailureCounters[player].text = orderCompletions[player].ToString();
+        playerFailureCounters[player].text = "Missed: " + orderCompletions[player].ToString();
     }
 
     private void Start()

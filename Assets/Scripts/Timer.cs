@@ -17,8 +17,7 @@ public class Timer : MonoBehaviour
     {
         // Testing.
         StartTimer(120);
-
-	}
+    }
 
     // Starts the game timer.
     public void StartTimer(float timeLimit)
