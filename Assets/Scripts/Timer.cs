@@ -23,8 +23,10 @@ public class Timer : MonoBehaviour
     [Header("Animation (optional)")]
     [SerializeField]
     private Animator pulse;
+    [SerializeField]
+    private string stateName;
 
-    // Testing
+    // Testing.
     [Header("Testing")]
     [SerializeField]
     private bool test;
@@ -32,9 +34,8 @@ public class Timer : MonoBehaviour
     private int seconds;
 
     private bool isRunning = false;
-
     private int lastDecrement;
-
+    [SerializeField]
     public float secondsRemaining { get; set; }
 
 	// Use this for initialization.
@@ -82,7 +83,7 @@ public class Timer : MonoBehaviour
                     timerText.color = lastTenSecColor;
                     if (pulse != null)
                     {
-                        pulse.Play("PulsateTimer");
+                        pulse.Play(stateName);
                     }
                 }
             }
