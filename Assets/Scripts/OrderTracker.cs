@@ -14,8 +14,8 @@ public class OrderTracker : MonoBehaviour {
     private Text[] playerFailureCounters;
 
     // Counters.
-    private int[] orderCompletions;
-    private int[] orderFailures;
+    private int[] orderCompletions { get; set; }
+    private int[] orderFailures { get; set; }
 
     // Testing.
     [Header("Testing")]
