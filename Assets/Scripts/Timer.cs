@@ -64,7 +64,7 @@ public class Timer : MonoBehaviour
         {
             secondsRemaining -= Time.deltaTime;
 
-            if ((int)secondsRemaining != lastDecrement)
+            if ((int)secondsRemaining != lastDecrement && lastDecrement != 0)
             {
                 lastDecrement--;
                 timerText.text = MinuteSecond((int)secondsRemaining);
