@@ -18,6 +18,7 @@ public class CharacterControl : MonoBehaviour
     [SerializeField]
     float characterSpeed;
 
+    public bool isMoving { get; private set; }
     public PlayerDirection _playerDirection { get { return playerDirection; } }
 
     //
@@ -61,32 +62,43 @@ public class CharacterControl : MonoBehaviour
 
                     this.transform.position += new Vector3(xInput, yInput, 0) * characterSpeed  * Time.deltaTime;
 
+                    if (xInput == 0 && yInput == 0)
+                    {
+
+                        isMoving = false;
+
+                    }
+
                     if (xInput < 0)
                     {
 
+                        isMoving = true;
                         playerDirection = PlayerDirection.LEFT;
 
                     }
                     if (xInput > 0)
                     {
 
+                        isMoving = true;
                         playerDirection = PlayerDirection.RIGHT;
 
                     }
                     if (yInput < 0)
                     {
 
+                        isMoving = true;
                         playerDirection = PlayerDirection.DOWN;
 
                     }
                     if (yInput > 0)
                     {
 
+                        isMoving = true;
                         playerDirection = PlayerDirection.UP;
 
                     }
 
-                    if (Input.GetButtonDown("DropPancake1") && heldItem != null)
+                    if (Input.GetButtonDown("Interact1") && heldItem != null)
                     {
 
                         heldItem = null;
@@ -103,32 +115,43 @@ public class CharacterControl : MonoBehaviour
 
                     this.transform.position += new Vector3(xInput, yInput, 0) * characterSpeed * Time.deltaTime;
 
+                    if (xInput == 0 && yInput == 0)
+                    {
+
+                        isMoving = false;
+
+                    }
+
                     if (xInput < 0)
                     {
 
+                        isMoving = true;
                         playerDirection = PlayerDirection.LEFT;
 
                     }
                     if (xInput > 0)
                     {
 
+                        isMoving = true;
                         playerDirection = PlayerDirection.RIGHT;
 
                     }
                     if (yInput < 0)
                     {
 
+                        isMoving = true;
                         playerDirection = PlayerDirection.DOWN;
 
                     }
                     if (yInput > 0)
                     {
 
+                        isMoving = true;
                         playerDirection = PlayerDirection.UP;
 
                     }
 
-                    if (Input.GetButtonDown("DropPancake2") && heldItem != null)
+                    if (Input.GetButtonDown("Interact2") && heldItem != null)
                     {
 
                         heldItem = null;
@@ -210,36 +233,31 @@ public class CharacterControl : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
 
-        Debug.Log("test1");
-        //switch (collision.gameObject.tag)
-        //{
-        Debug.Log(Input.GetButtonDown("DropPancake1"));
-
-        if (collision.gameObject.tag == "Pancake")
+        switch(playerNumber)
         {
 
-            if (Input.GetButtonDown("DropPancake1"))
-            {
+            case PlayerNumber.PLAYER_ONE:
+                {
 
-                Debug.Log(Input.GetButtonDown("DropPancake1"));
-                heldItem = collision.gameObject;
+                    if (Input.GetButtonDown("DropPancake1") && collision.tag == "Pancake")
+                    {
 
-            }
-            //if (Input.GetButtonDown("DropPancake2") &&
-            //    playerNumber == PlayerNumber.PLAYER_TWO &&
-            //    heldItem == null)
-            //{
+                        heldItem = collision.gameObject;
 
-            //    heldItem = collision.gameObject;
+                    }
+                    break;
+                }
+            case PlayerNumber.PLAYER_TWO:
+                {
 
-            //}
-            //break;
+
+                    break;
+                }
+
         }
-
-        
 
     }
 
