@@ -7,7 +7,13 @@ public class CharacterControl : MonoBehaviour
 {
 
     [SerializeField]
-    PlayerNumber playerNum;
+    PlayerNumber playerNumber;
+
+    [SerializeField]
+    PlayerDirection playerDirection;
+
+    [SerializeField]
+    GameObject heldItem;
 
     [SerializeField]
     float characterSpeed;
@@ -28,20 +34,22 @@ public class CharacterControl : MonoBehaviour
     {
 
         InputHandler();
+        RotateCharacter();
+
+        if (heldItem != null)
+        {
+
+            heldItem.GetComponent<CircleCollider2D>().isTrigger = true;
+            MoveHeldItem();
+
+        }
 
 	}
 
     void InputHandler()
     {
 
-        // 
-        Quaternion lockRotaion = this.transform.rotation;
-        lockRotaion.z = 0;
-
-        //
-        this.transform.rotation = lockRotaion;
-
-        switch (playerNum)
+        switch (playerNumber)
         {
 
             case PlayerNumber.PLAYER_ONE:
@@ -52,17 +60,48 @@ public class CharacterControl : MonoBehaviour
 
                     this.transform.position += new Vector3(xInput, yInput, 0) * characterSpeed  * Time.deltaTime;
 
-                    if (Input.GetAxis("DropPancake1") != 0)
+                    if (xInput < 0)
                     {
 
-                        Debug.Log("P1");
+                        playerDirection = PlayerDirection.LEFT;
 
                     }
+                    if (xInput > 0)
+                    {
+
+                        playerDirection = PlayerDirection.RIGHT;
+
+                    }
+                    if (yInput < 0)
+                    {
+
+                        playerDirection = PlayerDirection.DOWN;
+
+                    }
+                    if (yInput > 0)
+                    {
+
+                        playerDirection = PlayerDirection.UP;
+
+                    }
+
 
                     if ((int)Input.GetAxis("Interact1") != 0)
                     {
 
 
+
+                    }
+
+                    if ((int)Input.GetAxis("DropPancake1") != 0)
+                    {
+                        if (heldItem != null)
+                        {
+
+                            heldItem.GetComponent<CircleCollider2D>().isTrigger = false;
+                            heldItem = null;
+
+                        }
 
                     }
 
@@ -76,12 +115,8 @@ public class CharacterControl : MonoBehaviour
 
                     this.transform.position += new Vector3(xInput, yInput, 0) * characterSpeed * Time.deltaTime;
 
-                    if (Input.GetAxis("DropPancake2") != 0)
-                    {
-
-                        Debug.Log("P2");
-
-                    }
+                    xInput = Mathf.Ceil(xInput);
+                    yInput = Mathf.Ceil(yInput);
 
                     if ((int)Input.GetAxis("Interact2") != 0)
                     {
@@ -90,26 +125,125 @@ public class CharacterControl : MonoBehaviour
 
                     }
 
+                    if (Input.GetAxis("DropPancake2") != 0)
+                    {
+                        if (heldItem != null)
+                        {
+
+                            heldItem.GetComponent<CircleCollider2D>().isTrigger = false;
+                            heldItem = null;
+
+                        }
+
+                    }
+
                     break;
                 }
 
         }
 
+    }
 
+    void MoveHeldItem()
+    {
+
+        heldItem.transform.position = this.transform.position;
+        switch (playerDirection)
+        {
+
+            case PlayerDirection.UP:
+                {
+
+                    heldItem.transform.position += new Vector3(0, 1, 0);
+                    break;
+                }
+            case PlayerDirection.DOWN:
+                {
+
+                    heldItem.transform.position += new Vector3(0, -1, 0);
+                    break;
+                }
+            case PlayerDirection.LEFT:
+                {
+
+                    heldItem.transform.position += new Vector3(-1, 0, 0);
+                    break;
+                }
+            case PlayerDirection.RIGHT:
+                {
+
+                    heldItem.transform.position += new Vector3(1, 0, 0);
+                    break;
+                }
+
+        }
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void RotateCharacter()
     {
+
+        switch(playerDirection)
+        {
+
+            case PlayerDirection.UP:
+                {
+
+
+                    break;
+                }
+            case PlayerDirection.DOWN:
+                {
+
+                    break;
+                }
+            case PlayerDirection.LEFT:
+                {
+
+                    break;
+                }
+            case PlayerDirection.RIGHT:
+                {
+
+                    break;
+                }
         
-        switch(collision.gameObject.tag)
+        }
+
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+
+        Debug.Log("test1");
+        switch (collision.gameObject.tag)
         {
 
             case "Pancake":
                 {
 
-                    
+                    if (Input.GetAxis("DropPancake1") != 0)
+                    {
 
+                        if (heldItem == null)
+                        {
+
+                            heldItem = collision.gameObject;
+
+                        }
+
+                    }
+                    else if (Input.GetAxis("DropPancake1") != 0)
+                    {
+
+                        if (heldItem == null)
+                        {
+
+                            heldItem = collision.gameObject;
+
+                        }
+
+                    }
                     break;
                 }
 
