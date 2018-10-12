@@ -8,6 +8,15 @@ public class Timer : MonoBehaviour
     [SerializeField]
     private Text timerText;
 
+    // Timer colors.
+    [SerializeField]
+    private Color timerColor;
+    [SerializeField]
+    private Color lastThirtySecColor;
+    [SerializeField]
+    private Color lastTenSecColor;
+
+
     private bool isRunning = false;
 
     public float secondsRemaining { get; set; }
@@ -16,7 +25,7 @@ public class Timer : MonoBehaviour
 	void Start ()
     {
         // Testing.
-        StartTimer(120);
+        StartTimer(60);
     }
 
     // Starts the game timer.
@@ -35,8 +44,21 @@ public class Timer : MonoBehaviour
         {
             secondsRemaining -= Time.deltaTime;
             timerText.text = MinuteSecond((int)secondsRemaining);
+
+            if (secondsRemaining > 30)
+            {
+                timerText.color = timerColor;
+            }
+            else if (secondsRemaining > 10)
+            {
+                timerText.color = lastThirtySecColor;
+            }
+            else
+            {
+                timerText.color = lastTenSecColor;
+            }
         }
-	}
+    }
 
     // Convert seconds to minute-second format
     private string MinuteSecond (int totalSeconds)
