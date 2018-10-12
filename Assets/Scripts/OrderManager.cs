@@ -3,51 +3,91 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-public class OrderManager : MonoBehaviour {
+public class OrderManager : MonoBehaviour
+{
     //type of toppings
-    private enum toppings{PECANS,WHIPCREAM,BLUBERRIES,CHOC_CHIPS,SYRUP};
+    public enum toppings { PECANS, WHIPCREAM, BLUBERRIES, CHOC_CHIPS, SYRUP };
     //list of orders
-    private List<List<toppings>> pancakeOrders;
+    public static List<List<toppings>> pancakeOrders;
     //random object
     private System.Random rnd;
     //Timer object
-    Timer timer;
+    List<Timer> timer;
     //amount of seconds allowed per order
     [SerializeField]
-    int orderTime=30;
+    int orderTime = 30;
 
+    OrderTracker tracker = new OrderTracker();
 
-	// Use this for initialization
-	void Start () {
+    [SerializeField]
+    int playerNum;
+
+    // Use this for initialization
+    void Start()
+    {
         //initialize randome
-		rnd=new System.Random();
+        rnd = new System.Random();
         //max amount for list is 5
-        pancakeOrders = new List<List<toppings>>(5);
+        pancakeOrders = new List<List<toppings>>();
         //intialize timer
-        timer = new Timer();
+        timer = new List<Timer>();
         //add order to list
         AddOrder();
         //start timer
-        RunTimer();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        RunTimer(timer[0]);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         //add orders as needed
         AddOrder();
-        if(timer.secondsRemaining<=0)
+        //add timers
+        AddTimer();
+        //check timers
+        CheckTimer();
+        //check for messed up or correct completed orders
+        if (PlayerOrders.isMessedUp)
         {
-            //remove order from list
-            RemoveOrder();
-            //restart timer
-            RunTimer();
+            RemoveOrder(PlayerOrders.orderIndex);
+            tracker.CompletedOrder(playerNum);
         }
-	}
+        if (PlayerOrders.isCompleted)
+        {
+            RemoveOrder(PlayerOrders.orderIndex);
+            tracker.MissedOrder(playerNum);
+        }
+    }
+
+    void CheckTimer()
+    {
+        int i = 0;
+        foreach (Timer t in timer)
+        {
+            if (t.secondsRemaining <= 0)
+            {
+                //remove order from list
+                RemoveOrder(i);
+            }
+            i++;
+        }
+    }
 
     //starts timer for orders
-    void RunTimer()
+    void RunTimer(Timer t)
     {
-        timer.StartTimer(orderTime);
+        t.StartTimer(orderTime);
+    }
+
+
+    void AddTimer()
+    {
+        if(timer.Count<5)
+        {
+            Timer t = new Timer();
+            timer.Add(t);
+            RunTimer(t);
+        }
     }
 
     //add an order to the list
@@ -85,21 +125,27 @@ public class OrderManager : MonoBehaviour {
     }
 
     //remove order from the list
-    void RemoveOrder()
+    void RemoveOrder(int i)
     {
-        pancakeOrders[0] = pancakeOrders[1];
-        pancakeOrders[1] = pancakeOrders[2];
-        pancakeOrders[2] = pancakeOrders[3];
-        pancakeOrders[3] = pancakeOrders[4];
-        pancakeOrders.Remove(pancakeOrders[4]);
-        
+        //remove order
+        for (int n = i; n < pancakeOrders.Count-1; i++)
+        {
+            pancakeOrders[n] = pancakeOrders[n+1];
+        }
+        pancakeOrders.Remove(pancakeOrders[pancakeOrders.Count - 1]);
+        //remove timer
+        for(int n=i; n<timer.Count-1;i++)
+        {
+            timer[n] = timer[n + 1];
+        }
+        timer.Remove(timer[timer.Count - 1]);
     }
 
 
 
     //create random number
-    int Random(int low,int high)
+    int Random(int low, int high)
     {
-        return rnd.Next(low,high);
+        return rnd.Next(low, high);
     }
 }
