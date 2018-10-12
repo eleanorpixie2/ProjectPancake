@@ -42,32 +42,32 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: left ctrl
+    positiveButton: joystick button 5
     altNegativeButton: 
-    altPositiveButton: mouse 0
-    gravity: 0
-    dead: 0
-    sensitivity: 1
+    altPositiveButton: 
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
     snap: 0
     invert: 0
     type: 2
-    axis: 9
+    axis: 0
     joyNum: 1
   - serializedVersion: 3
     m_Name: DropPancake2
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: left alt
+    positiveButton: joystick button 5
     altNegativeButton: 
-    altPositiveButton: mouse 1
-    gravity: 0
-    dead: 0
-    sensitivity: 1
+    altPositiveButton: 
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
     snap: 0
     invert: 0
-    type: 2
-    axis: 9
+    type: 0
+    axis: 0
     joyNum: 2
   - serializedVersion: 3
     m_Name: Fire3
@@ -291,7 +291,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 3
+    axis: 0
     joyNum: 1
   - serializedVersion: 3
     m_Name: Player1MoveY
@@ -307,7 +307,7 @@ InputManager:
     snap: 0
     invert: 1
     type: 2
-    axis: 4
+    axis: 1
     joyNum: 1
   - serializedVersion: 3
     m_Name: Player2MoveX
@@ -323,7 +323,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 3
+    axis: 0
     joyNum: 2
   - serializedVersion: 3
     m_Name: Player2MoveY
@@ -339,7 +339,7 @@ InputManager:
     snap: 0
     invert: 1
     type: 2
-    axis: 4
+    axis: 1
     joyNum: 2
   - serializedVersion: 3
     m_Name: Interact1
@@ -370,6 +370,6 @@ InputManager:
     sensitivity: 1000
     snap: 0
     invert: 0
-    type: 2
+    type: 0
     axis: 0
     joyNum: 2
