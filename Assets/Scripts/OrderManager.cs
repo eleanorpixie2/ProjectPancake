@@ -12,7 +12,8 @@ public class OrderManager : MonoBehaviour {
     private System.Random rnd;
     //Timer object
     Timer timer;
-
+    [SerializeField]
+    int orderTime=30;
 
 
 	// Use this for initialization
@@ -28,8 +29,16 @@ public class OrderManager : MonoBehaviour {
 	void Update () {
         //add orders as needed
         AddOrder();
-        timer.
+        if(timer.secondsRemaining<=0)
+        {
+
+        }
 	}
+
+    void RunTimer()
+    {
+        timer.StartTimer(orderTime);
+    }
 
     //add an order to the list
     void AddOrder()
