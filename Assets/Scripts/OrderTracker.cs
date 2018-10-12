@@ -6,8 +6,10 @@ using UnityEngine.UI;
 public class OrderTracker : MonoBehaviour {
 
     // Inspector fields for player counter ui texts.
+    [Header("Successful Orders")]
     [SerializeField]
     private Text[] playerSuccessCounters;
+    [Header("Failed Orders")]
     [SerializeField]
     private Text[] playerFailureCounters;
 
@@ -36,22 +38,19 @@ public class OrderTracker : MonoBehaviour {
         orderFailures = new int[playerSuccessCounters.Length];
     }
 
-
-
-
     // Testing only.
-    float lastHit = 0;
-    private void Update()
-    {
-        if (Time.time - 1 > lastHit)
-        {
-            lastHit = Time.time;
+    //float lastHit = 0;
+    //private void Update()
+    //{
+    //    if (Time.time - 1 > lastHit)
+    //    {
+    //        lastHit = Time.time;
 
-            CompletedOrder(0);
-            CompletedOrder(1);
+    //        CompletedOrder(0);
+    //        CompletedOrder(1);
 
-            MissedOrder(1);
-            MissedOrder(0);
-        }
-    }
+    //        MissedOrder(1);
+    //        MissedOrder(0);
+    //    }
+    //}
 }
