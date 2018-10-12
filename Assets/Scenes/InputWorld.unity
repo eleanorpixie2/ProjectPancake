@@ -204,17 +204,16 @@ GameObject:
   - component: {fileID: 412607785}
   - component: {fileID: 412607784}
   - component: {fileID: 412607783}
-  - component: {fileID: 412607782}
   - component: {fileID: 412607781}
   m_Layer: 0
   m_Name: pancake
-  m_TagString: Untagged
+  m_TagString: Pancake
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &412607781
-BoxCollider2D:
+--- !u!58 &412607781
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -226,33 +225,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.87, y: 4.3}
-    newSize: {x: 2.87, y: 4.3}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4, y: 4}
-  m_EdgeRadius: 0
---- !u!58 &412607782
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 412607780}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.5
+  m_Radius: 2.15
 --- !u!50 &412607783
 Rigidbody2D:
   serializedVersion: 4
@@ -361,7 +335,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d77b4de539e32448a5ae07cef76666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 1
+  playerNumber: 1
+  playerDirection: 0
+  heldItem: {fileID: 0}
   characterSpeed: 10
 --- !u!61 &855657000
 BoxCollider2D:
@@ -443,7 +419,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d408fa6cc41bc59489b9c8dd1d90e66b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f1888cd87deb99642a4df3d686a98b2e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -496,7 +472,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d77b4de539e32448a5ae07cef76666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 0
+  playerNumber: 0
+  playerDirection: 0
+  heldItem: {fileID: 0}
   characterSpeed: 10
 --- !u!61 &1380250738
 BoxCollider2D:
@@ -542,7 +520,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &1380250740
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -578,7 +556,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d408fa6cc41bc59489b9c8dd1d90e66b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f1888cd87deb99642a4df3d686a98b2e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
