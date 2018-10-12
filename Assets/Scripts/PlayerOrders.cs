@@ -25,7 +25,7 @@ public class PlayerOrders : MonoBehaviour {
     public static bool isMessedUp;
 
     //what each character created order has
-    private static List<List<bool>> eachOrderHas;
+    public static List<bool> eachOrderHas;
 
     //index of order
     public static int orderIndex;
@@ -35,15 +35,14 @@ public class PlayerOrders : MonoBehaviour {
         
 		for(int i=0;i<OrderManager.pancakeOrders.Count;i++)
         {
-            List<bool> singleOrder = new List<bool>();
-            singleOrder.Add(hasBluberries);
-            singleOrder.Add(hasSyrup);
-            singleOrder.Add(hasNuts);
-            singleOrder.Add(hasChocChips);
-            singleOrder.Add(hasWhipCream);
-            singleOrder.Add(isCompleted);
-            singleOrder.Add(isMessedUp);
-            eachOrderHas.Add(singleOrder);
+            eachOrderHas = new List<bool>();
+            eachOrderHas.Add(hasBluberries);
+            eachOrderHas.Add(hasSyrup);
+            eachOrderHas.Add(hasNuts);
+            eachOrderHas.Add(hasChocChips);
+            eachOrderHas.Add(hasWhipCream);
+            eachOrderHas.Add(isCompleted);
+            eachOrderHas.Add(isMessedUp);
         }
 	}
 	
@@ -58,7 +57,7 @@ public class PlayerOrders : MonoBehaviour {
         orderIndex = i;
         for(int n=0; n<OrderManager.pancakeOrders[i].Count;n++)
         {
-           if(eachOrderHas[i][n])
+           if(eachOrderHas[i])
             {
                 if(n==0)
                 {
