@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts;
 using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour {
@@ -10,10 +11,11 @@ public class PlayerAnimator : MonoBehaviour {
     [SerializeField]
     private Animator player2;
 	
-	// Update is called once per frame
+	// Update is called once per frame.
 	void Update ()
     {
-        if (true) // Player is idle.
+        // Animate player 1.
+        if (!player1.gameObject.GetComponent<CharacterControl>().isMoving)
         {
             player1.Play("Idle");
         }
@@ -21,24 +23,29 @@ public class PlayerAnimator : MonoBehaviour {
         {
             switch (player1.gameObject.GetComponent<CharacterControl>()._playerDirection)
             {
-                case Assets.Scripts.PlayerDirection.DOWN:
+                case PlayerDirection.DOWN:
                     player1.Play("WalkingSouth");
+                    Debug.Log("1 down");
                     break;
-                case Assets.Scripts.PlayerDirection.LEFT:
+                case PlayerDirection.LEFT:
                     player1.Play("WalkingWest");
+                    Debug.Log("1 left");
                     break;
-                case Assets.Scripts.PlayerDirection.RIGHT:
+                case PlayerDirection.RIGHT:
                     player1.Play("WalkingEast");
+                    Debug.Log("1 right");
                     break;
-                case Assets.Scripts.PlayerDirection.UP:
+                case PlayerDirection.UP:
                     player1.Play("WalkingNorth");
+                    Debug.Log("1 up");
                     break;
             }
         }
 
-        if (true) // Player2 is idle.
+        // Animate player 2.
+        if (player2.gameObject.GetComponent<CharacterControl>().isMoving)
         {
-
+            player2.Play("Idle");
         }
         else
         {
