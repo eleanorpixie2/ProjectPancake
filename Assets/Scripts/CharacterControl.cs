@@ -18,6 +18,8 @@ public class CharacterControl : MonoBehaviour
     [SerializeField]
     float characterSpeed;
 
+    public PlayerDirection _playerDirection { get { return playerDirection; } }
+
     //
     Rigidbody2D thisRigidBody;
 
@@ -39,12 +41,11 @@ public class CharacterControl : MonoBehaviour
         if (heldItem != null)
         {
 
-            heldItem.GetComponent<CircleCollider2D>().isTrigger = true;
             MoveHeldItem();
 
         }
 
-	}
+    }
 
     void InputHandler()
     {
@@ -85,23 +86,10 @@ public class CharacterControl : MonoBehaviour
 
                     }
 
-
-                    if ((int)Input.GetAxis("Interact1") != 0)
+                    if (Input.GetButtonDown("DropPancake1") && heldItem != null)
                     {
 
-
-
-                    }
-
-                    if ((int)Input.GetAxis("DropPancake1") != 0)
-                    {
-                        if (heldItem != null)
-                        {
-
-                            heldItem.GetComponent<CircleCollider2D>().isTrigger = false;
-                            heldItem = null;
-
-                        }
+                        heldItem = null;
 
                     }
 
@@ -115,25 +103,35 @@ public class CharacterControl : MonoBehaviour
 
                     this.transform.position += new Vector3(xInput, yInput, 0) * characterSpeed * Time.deltaTime;
 
-                    xInput = Mathf.Ceil(xInput);
-                    yInput = Mathf.Ceil(yInput);
-
-                    if ((int)Input.GetAxis("Interact2") != 0)
+                    if (xInput < 0)
                     {
 
+                        playerDirection = PlayerDirection.LEFT;
 
+                    }
+                    if (xInput > 0)
+                    {
+
+                        playerDirection = PlayerDirection.RIGHT;
+
+                    }
+                    if (yInput < 0)
+                    {
+
+                        playerDirection = PlayerDirection.DOWN;
+
+                    }
+                    if (yInput > 0)
+                    {
+
+                        playerDirection = PlayerDirection.UP;
 
                     }
 
-                    if (Input.GetAxis("DropPancake2") != 0)
+                    if (Input.GetButtonDown("DropPancake2") && heldItem != null)
                     {
-                        if (heldItem != null)
-                        {
 
-                            heldItem.GetComponent<CircleCollider2D>().isTrigger = false;
-                            heldItem = null;
-
-                        }
+                        heldItem = null;
 
                     }
 
@@ -212,42 +210,36 @@ public class CharacterControl : MonoBehaviour
 
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
 
         Debug.Log("test1");
-        switch (collision.gameObject.tag)
+        //switch (collision.gameObject.tag)
+        //{
+        Debug.Log(Input.GetButtonDown("DropPancake1"));
+
+        if (collision.gameObject.tag == "Pancake")
         {
 
-            case "Pancake":
-                {
+            if (Input.GetButtonDown("DropPancake1"))
+            {
 
-                    if (Input.GetAxis("DropPancake1") != 0)
-                    {
+                Debug.Log(Input.GetButtonDown("DropPancake1"));
+                heldItem = collision.gameObject;
 
-                        if (heldItem == null)
-                        {
+            }
+            //if (Input.GetButtonDown("DropPancake2") &&
+            //    playerNumber == PlayerNumber.PLAYER_TWO &&
+            //    heldItem == null)
+            //{
 
-                            heldItem = collision.gameObject;
+            //    heldItem = collision.gameObject;
 
-                        }
-
-                    }
-                    else if (Input.GetAxis("DropPancake1") != 0)
-                    {
-
-                        if (heldItem == null)
-                        {
-
-                            heldItem = collision.gameObject;
-
-                        }
-
-                    }
-                    break;
-                }
-
+            //}
+            //break;
         }
+
+        
 
     }
 
