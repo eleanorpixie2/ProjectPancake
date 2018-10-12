@@ -10,10 +10,11 @@ public class PlayerAnimator : MonoBehaviour {
     [SerializeField]
     private Animator player2;
 	
-	// Update is called once per frame
+	// Update is called once per frame.
 	void Update ()
     {
-        if (player1.gameObject.GetComponent<CharacterControl>().isMoving) // Player is idle.
+        // Animate player 1.
+        if (player1.gameObject.GetComponent<CharacterControl>().isMoving)
         {
             player1.Play("Idle");
         }
@@ -36,7 +37,8 @@ public class PlayerAnimator : MonoBehaviour {
             }
         }
 
-        if (player2.gameObject.GetComponent<CharacterControl>().isMoving) // Player2 is idle.
+        // Animate player 2.
+        if (player2.gameObject.GetComponent<CharacterControl>().isMoving)
         {
             player2.Play("Idle");
         }
