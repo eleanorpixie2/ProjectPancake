@@ -17,6 +17,11 @@ public class OrderTracker : MonoBehaviour {
     private int[] orderCompletions;
     private int[] orderFailures;
 
+    // Testing.
+    [Header("Testing")]
+    [SerializeField]
+    private bool test;
+
     public void CompletedOrder (int player)
     {
         // Update order completions.
@@ -38,19 +43,19 @@ public class OrderTracker : MonoBehaviour {
         orderFailures = new int[playerSuccessCounters.Length];
     }
 
-    // Testing only.
-    //float lastHit = 0;
-    //private void Update()
-    //{
-    //    if (Time.time - 1 > lastHit)
-    //    {
-    //        lastHit = Time.time;
+    //Testing only.
+    float lastHit = 0;
+    private void Update()
+    {
+        if (test && Time.time - 1 > lastHit)
+        {
+            lastHit = Time.time;
 
-    //        CompletedOrder(0);
-    //        CompletedOrder(1);
-
-    //        MissedOrder(1);
-    //        MissedOrder(0);
-    //    }
-    //}
+            // Increment all counters.
+            CompletedOrder(0);
+            CompletedOrder(1);
+            MissedOrder(0);
+            MissedOrder(1);
+        }
+    }
 }
