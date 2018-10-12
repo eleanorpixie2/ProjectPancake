@@ -12,6 +12,7 @@ public class OrderManager : MonoBehaviour {
     private System.Random rnd;
     //Timer object
     Timer timer;
+    //amount of seconds allowed per order
     [SerializeField]
     int orderTime=30;
 
@@ -22,7 +23,12 @@ public class OrderManager : MonoBehaviour {
 		rnd=new System.Random();
         //max amount for list is 5
         pancakeOrders = new List<List<toppings>>(5);
+        //intialize timer
         timer = new Timer();
+        //add order to list
+        AddOrder();
+        //start timer
+        RunTimer();
 	}
 	
 	// Update is called once per frame
@@ -31,10 +37,14 @@ public class OrderManager : MonoBehaviour {
         AddOrder();
         if(timer.secondsRemaining<=0)
         {
-
+            //remove order from list
+            RemoveOrder();
+            //restart timer
+            RunTimer();
         }
 	}
 
+    //starts timer for orders
     void RunTimer()
     {
         timer.StartTimer(orderTime);
@@ -77,11 +87,17 @@ public class OrderManager : MonoBehaviour {
     //remove order from the list
     void RemoveOrder()
     {
-        pancakeOrders.Remove(pancakeOrders[0]);
+        pancakeOrders[0] = pancakeOrders[1];
+        pancakeOrders[1] = pancakeOrders[2];
+        pancakeOrders[2] = pancakeOrders[3];
+        pancakeOrders[3] = pancakeOrders[4];
+        pancakeOrders.Remove(pancakeOrders[4]);
+        
     }
 
 
 
+    //create random number
     int Random(int low,int high)
     {
         return rnd.Next(low,high);
