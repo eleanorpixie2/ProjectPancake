@@ -13,7 +13,7 @@ public class PlayerAnimator : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (true) // Player is idle.
+        if (player1.gameObject.GetComponent<CharacterControl>().isMoving) // Player is idle.
         {
             player1.Play("Idle");
         }
@@ -36,9 +36,9 @@ public class PlayerAnimator : MonoBehaviour {
             }
         }
 
-        if (true) // Player2 is idle.
+        if (player2.gameObject.GetComponent<CharacterControl>().isMoving) // Player2 is idle.
         {
-
+            player2.Play("Idle");
         }
         else
         {
