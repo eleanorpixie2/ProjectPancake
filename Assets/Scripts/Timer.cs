@@ -10,15 +10,14 @@ public class Timer : MonoBehaviour
 
     private bool isRunning = false;
 
-    private float secondsRemaining;
+    public float secondsRemaining { get; set; }
 
 	// Use this for initialization.
 	void Start ()
     {
         // Testing.
         StartTimer(120);
-
-	}
+    }
 
     // Starts the game timer.
     public void StartTimer(float timeLimit)
