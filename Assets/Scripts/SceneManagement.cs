@@ -88,13 +88,13 @@ public class SceneManagement : MonoBehaviour
 
 
     //loads win scene
-    public static void Win()
+    public static void PlayerOneWin()
     {
-        SceneManager.LoadScene("Victory");
+        SceneManager.LoadScene("PlayerOneWin");
     }
     //loads gameover scene
-    public static void GameOver()
+    public static void PlayerTwoWin()
     {
-        SceneManager.LoadScene("GameOver");
+        SceneManager.LoadScene("PlayerTwoWin");
     }
 }
