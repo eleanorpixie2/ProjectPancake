@@ -22,6 +22,8 @@ public class OrderManager : MonoBehaviour
     [SerializeField]
     int playerNum;
 
+    Dictionary<int, List<toppings>> Orders;
+
     // Use this for initialization
     void Start()
     {
@@ -31,46 +33,66 @@ public class OrderManager : MonoBehaviour
         pancakeOrders = new List<List<toppings>>();
         //intialize timer
         timer = new List<Timer>();
-        //add order to list
+        //add orders as needed
         AddOrder();
-        //start timer
-        RunTimer(timer[0]);
+        //add timers
+        AddTimer();
     }
 
     // Update is called once per frame
     void Update()
     {
+        StartCoroutine(Between());
         //add orders as needed
         AddOrder();
         //add timers
         AddTimer();
+        
         //check timers
         CheckTimer();
         //check for messed up or correct completed orders
         if (PlayerOrders.isMessedUp)
         {
-            RemoveOrder(PlayerOrders.orderIndex);
+            //RemoveOrder(PlayerOrders.orderIndex);
             tracker.CompletedOrder(playerNum);
         }
         if (PlayerOrders.isCompleted)
         {
-            RemoveOrder(PlayerOrders.orderIndex);
+            //singleOrderRemoveOrder(PlayerOrders.orderIndex);
             tracker.MissedOrder(playerNum);
         }
     }
 
     void CheckTimer()
     {
-        int i = 0;
-        foreach (Timer t in timer)
+        Debug.Log(timer[0].secondsRemaining);
+        if (timer[0].secondsRemaining <= 0)
         {
-            if (t.secondsRemaining <= 0)
-            {
-                //remove order from list
-                RemoveOrder(i);
-            }
-            i++;
+
+            //remove order from list
+            RemoveOrder(Orders[0]);
+            AddOrder();
         }
+        //if (timer[1].secondsRemaining <= 1)
+        //{
+        //    //remove order from list
+        //    RemoveOrder(1);
+        //}
+        //if (timer[2].secondsRemaining <= 1)
+        //{
+        //    //remove order from list
+        //    RemoveOrder(2);
+        //}
+        //if (timer[3].secondsRemaining <= 1)
+        //{
+        //    //remove order from list
+        //    RemoveOrder(3);
+        //}
+        //if (timer[4].secondsRemaining <= 1)
+        //{
+        //    //remove order from list
+        //    RemoveOrder(4);
+        //}
     }
 
     //starts timer for orders
@@ -82,12 +104,22 @@ public class OrderManager : MonoBehaviour
 
     void AddTimer()
     {
-        if(timer.Count<5)
+        //if(timer.Count<5)
+        //{
+        //    Timer t = new Timer();
+        //    timer.Add(t);
+        //    RunTimer(t);
+        //    Debug.Log(timer.Count);
+        //}
+
+        if (timer.Count < 5)
         {
-            Timer t = new Timer();
-            timer.Add(t);
-            RunTimer(t);
+
+            timer.Add(GameObject.Find("Timer").GetComponent<Timer>());
+            RunTimer(timer[0]);
+
         }
+
     }
 
     //add an order to the list
@@ -96,7 +128,7 @@ public class OrderManager : MonoBehaviour
         if (pancakeOrders.Count < 5)
         {
             //get a single order, random amount of toppings, and keep track of toppings already added
-            int numToppings = Random(0, 5);
+            int numToppings = Random(1, 6);
             List<toppings> singleOrder = new List<toppings>();
             List<int> previousToppings = new List<int>(numToppings);
             //add random toppings, but only 1 of each kind
@@ -114,34 +146,38 @@ public class OrderManager : MonoBehaviour
                         topping = Random(0, 5);
                     }
                 }
-
                 singleOrder.Add(((toppings)topping));
                 previousToppings.Add(topping);
 
             }
             //add order to orders list
             pancakeOrders.Add(singleOrder);
+            Orders.Add(pancakeOrders.Count, singleOrder);
         }
     }
 
     //remove order from the list
-    void RemoveOrder(int i)
+    void RemoveOrder(List<toppings> ToRemove)
     {
+        pancakeOrders.Remove(ToRemove);
         //remove order
-        for (int n = i; n < pancakeOrders.Count-1; i++)
-        {
-            pancakeOrders[n] = pancakeOrders[n+1];
-        }
-        pancakeOrders.Remove(pancakeOrders[pancakeOrders.Count - 1]);
-        //remove timer
-        for(int n=i; n<timer.Count-1;i++)
-        {
-            timer[n] = timer[n + 1];
-        }
-        timer.Remove(timer[timer.Count - 1]);
+        //for (int n = i; n < pancakeOrders.Count-1; i++)
+        //{
+        //    pancakeOrders[n] = pancakeOrders[n+1];
+        //}
+        //pancakeOrders.Remove(pancakeOrders[pancakeOrders.Count - 1]);
+        ////remove timer
+        //for(int n=i; n<timer.Count-1;i++)
+        //{
+        //    timer[n] = timer[n + 1];
+        //}
+        //timer.Remove(timer[timer.Count - 1]);
     }
 
-
+IEnumerator Between()
+    {
+        yield return new WaitForSeconds(10);
+    }
 
     //create random number
     int Random(int low, int high)
