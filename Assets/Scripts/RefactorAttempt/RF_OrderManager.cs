@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RF_OrderManager : MonoBehaviour
 {
@@ -15,11 +16,9 @@ public class RF_OrderManager : MonoBehaviour
     [SerializeField]
     Timer GlobalTimer;
 
-    [SerializeField]
-    List<GameObject> blueOrderList;
+    public List<GameObject> blueOrderList;
 
-    [SerializeField]
-    List<GameObject> redOrderList;
+    public List<GameObject> redOrderList;
 
     [SerializeField]
     int orderTime = 30;
@@ -74,6 +73,21 @@ public class RF_OrderManager : MonoBehaviour
         currentOrderCounter = orderCounter;
 
 #endif
+
+        if (GlobalTimer.secondsRemaining < 0)
+        {
+
+            if(OrderTracker.CompleterdOrders1>OrderTracker.CompleterdOrders2)
+            {
+                SceneManagement.PlayerOneWin();
+            }
+            else
+            {
+                SceneManagement.PlayerTwoWin();
+            }
+
+        }
+
         // check timer count of individual orders
         CheckTimers();
 
@@ -164,6 +178,8 @@ public class RF_OrderManager : MonoBehaviour
         // Create order instance
         // Change order time as necessary
         Order newOrder = new Order(newPancakeOrder, orderCounter, orderTime);
+
+        pancakeOrders.Add(newOrder);
         BindToOrderGameobject(newOrder);
         newOrder.StartOrder();
 
@@ -187,7 +203,7 @@ public class RF_OrderManager : MonoBehaviour
 
         }
 
-        if (orderIndexToRemove != -1)
+        if (orderIndexToRemove != -1 && pancakeOrders[orderIndexToRemove].bindedGameObject != null)
         {
 
             pancakeOrders[orderIndexToRemove].bindedGameObject.GetComponent<GameOrder>().RemoveOrder();

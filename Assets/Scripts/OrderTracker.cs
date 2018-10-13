@@ -8,13 +8,14 @@ public class OrderTracker : MonoBehaviour {
     // Inspector fields for player counter ui texts.
     [Header("Successful Orders")]
     [SerializeField]
-    private Text[] playerSuccessCounters;
-    [Header("Failed Orders")]
+    Text player1;
     [SerializeField]
-    private Text[] playerFailureCounters;
+    Text player2;
+   
 
     // Counters.
-    private int[] orderCompletions { get; set; }
+    public static int CompleterdOrders1 = 0;
+    public static int CompleterdOrders2 = 0;
     private int[] orderFailures { get; set; }
 
     // Testing.
@@ -22,25 +23,28 @@ public class OrderTracker : MonoBehaviour {
     [SerializeField]
     private bool test;
 
-    public void CompletedOrder (int player)
+    public void CompletedOrder(int player)
     {
         // Update order completions.
-        orderCompletions[player]++;
-        playerSuccessCounters[player].text = "Completed: " + orderCompletions[player].ToString();
+        switch (player)
+        {
+            case 1:
+                CompleterdOrders1++;
+                player1.text = "Completed: " + CompleterdOrders1.ToString();
+                break;
+            case 2:
+                CompleterdOrders2++;
+                player2.text = "Completed: " + CompleterdOrders2.ToString();
+                break;
+        }
+
+
     }
 
-    public void MissedOrder (int player)
-    {
-        // Update order failures.
-        orderFailures[player]++;
-        playerFailureCounters[player].text = "Missed: " + orderCompletions[player].ToString();
-    }
 
     private void Start()
     {
-        // Size array to match number of players in inspector.
-        orderCompletions = new int[playerSuccessCounters.Length];
-        orderFailures = new int[playerSuccessCounters.Length];
+
     }
 
     //Testing only.
@@ -54,8 +58,7 @@ public class OrderTracker : MonoBehaviour {
             // Increment all counters.
             CompletedOrder(0);
             CompletedOrder(1);
-            MissedOrder(0);
-            MissedOrder(1);
+           
         }
     }
 }

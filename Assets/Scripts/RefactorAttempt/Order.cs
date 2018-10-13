@@ -5,8 +5,6 @@ using UnityEngine;
 public class Order
 {
 
-
-
     // Expected time for pancake to be prepared
     float pancakePreparationTime = 15.0f;
 

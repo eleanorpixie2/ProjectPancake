@@ -12,8 +12,7 @@ public class CharacterControl : MonoBehaviour
     [SerializeField]
     PlayerDirection playerDirection;
 
-    [SerializeField]
-    GameObject heldItem;
+    public GameObject heldItem;
 
     [SerializeField]
     float characterSpeed;
@@ -36,6 +35,7 @@ public class CharacterControl : MonoBehaviour
             return null;
 
         }
+        set { heldPancake = value; }
 
     }
 

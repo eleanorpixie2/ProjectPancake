@@ -59,7 +59,7 @@ public class OrderManager : MonoBehaviour
         if (PlayerOrders.isCompleted)
         {
             //singleOrderRemoveOrder(PlayerOrders.orderIndex);
-            tracker.MissedOrder(playerNum);
+
         }
     }
 
