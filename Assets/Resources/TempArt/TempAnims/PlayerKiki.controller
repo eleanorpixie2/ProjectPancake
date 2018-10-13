@@ -60,13 +60,13 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!1102 &1102221109935988110
+--- !u!1102 &1102085624260309334
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Idle Up
+  m_Name: KikiIdleRight
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -79,19 +79,19 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: de11a43675c816f4b836448186119973, type: 2}
+  m_Motion: {fileID: 7400000, guid: 5676ed1ef51b1f4448757c11b4552c53, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &1102361782052472616
+--- !u!1102 &1102089660771800522
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Idle Left
+  m_Name: KikiIdleDown
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -104,19 +104,19 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7f6cda07222dced46a0e182b7b0d8a50, type: 2}
+  m_Motion: {fileID: 7400000, guid: 28612ce23030d70458223ef05892f43b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &1102374115278100126
+--- !u!1102 &1102322494840019110
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Idle Down
+  m_Name: KikiWalkDown
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -129,69 +129,19 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 191d9663b69702c4c9f19b757b62d888, type: 2}
+  m_Motion: {fileID: 7400000, guid: 465e4b3f08f06a64795f95d748e1e83d, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &1102374183701117164
-AnimatorState:
-  serializedVersion: 5
-  m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: WalkingWest
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 5bb76f74e2da0dc4887b2cff07cbb523, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &1102455479594916896
-AnimatorState:
-  serializedVersion: 5
-  m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: WalkingSouth
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 3fb9bc7487f6178489eaf1825b604083, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &1102493149957262630
+--- !u!1102 &1102449650698499888
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: WalkingNorth
+  m_Name: KikiWalkLeft
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -204,19 +154,19 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 05a91ad049724624f8ceaa7fcf5e801b, type: 2}
+  m_Motion: {fileID: 7400000, guid: a2462228643dae7498bf50bfd8474bab, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &1102783600769375656
+--- !u!1102 &1102524229917703804
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Idle Right
+  m_Name: KikiIdleLeft
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -229,19 +179,19 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 56f1378ed3e2cb547ac1bd5de5de57c0, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9d158ead40e6d564f845807fc61a7452, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &1102809720776823860
+--- !u!1102 &1102575863259485150
 AnimatorState:
   serializedVersion: 5
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: WalkingEast
+  m_Name: KikiWalkUp
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -254,7 +204,57 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8f1ad4c4d62883a4b9415e7cba2b0a99, type: 2}
+  m_Motion: {fileID: 7400000, guid: 80e991e0ba3a90843b9a332d94dd7a25, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &1102960849737646298
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: KikiWalkRight
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: da5feba6942b2e7449a9bcecf5cbc372, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &1102983713881681880
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: KikiIdleUp
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 28a69591acf24264fa661e0eca78bd33, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -269,29 +269,29 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: 1102493149957262630}
-    m_Position: {x: 528, y: -264, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 1102455479594916896}
-    m_Position: {x: 528, y: -24, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 1102809720776823860}
-    m_Position: {x: 768, y: -144, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 1102374183701117164}
-    m_Position: {x: 288, y: -192, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 1102361782052472616}
-    m_Position: {x: 288, y: -144, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 1102374115278100126}
+    m_State: {fileID: 1102089660771800522}
     m_Position: {x: 528, y: -72, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 1102783600769375656}
-    m_Position: {x: 768, y: -192, z: 0}
+    m_State: {fileID: 1102524229917703804}
+    m_Position: {x: 288, y: -144, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 1102221109935988110}
-    m_Position: {x: 528, y: -312, z: 0}
+    m_State: {fileID: 1102322494840019110}
+    m_Position: {x: 528, y: -24, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 1102085624260309334}
+    m_Position: {x: 756, y: -156, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 1102983713881681880}
+    m_Position: {x: 540, y: -252, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 1102575863259485150}
+    m_Position: {x: 540, y: -312, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 1102449650698499888}
+    m_Position: {x: 288, y: -192, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 1102960849737646298}
+    m_Position: {x: 756, y: -204, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -301,4 +301,4 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 552, y: -120, z: 0}
   m_ExitPosition: {x: 552, y: -156, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 1102374115278100126}
+  m_DefaultState: {fileID: 1102089660771800522}
