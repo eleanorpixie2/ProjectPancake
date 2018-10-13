@@ -35,7 +35,7 @@ public class RF_CollisionManager : MonoBehaviour
             case "Blueberries":
                 {
 
-                    if (Input.GetAxis("Topping" + playerNum) != 0)
+                    if (Input.GetAxis("Topping" + playerNum) != 0 && PlayerCheck(playerNum).heldPancake != null)
                     {
 
                         PlayerCheck(playerNum).heldPancake.AddTopping(PancakeToppings.BLUBERRIES);
@@ -47,7 +47,7 @@ public class RF_CollisionManager : MonoBehaviour
             case "Syrup":
                 {
 
-                    if (Input.GetAxis("Topping" + playerNum) != 0)
+                    if (Input.GetAxis("Topping" + playerNum) != 0 && PlayerCheck(playerNum).heldPancake != null)
                     {
 
                         PlayerCheck(playerNum).heldPancake.AddTopping(PancakeToppings.SYRUP);
@@ -58,7 +58,7 @@ public class RF_CollisionManager : MonoBehaviour
             case "Nuts":
                 {
 
-                    if (Input.GetAxis("Topping" + playerNum) != 0)
+                    if (Input.GetAxis("Topping" + playerNum) != 0 && PlayerCheck(playerNum).heldPancake != null)
                     {
 
                         PlayerCheck(playerNum).heldPancake.AddTopping(PancakeToppings.PECANS);
@@ -69,7 +69,7 @@ public class RF_CollisionManager : MonoBehaviour
             case "ChocoChips":
                 {
 
-                    if (Input.GetAxis("Topping" + playerNum) != 0)
+                    if (Input.GetAxis("Topping" + playerNum) != 0 && PlayerCheck(playerNum).heldPancake != null)
                     {
 
                         PlayerCheck(playerNum).heldPancake.AddTopping(PancakeToppings.CHOC_CHIPS);
@@ -80,7 +80,7 @@ public class RF_CollisionManager : MonoBehaviour
             case "Whipcream":
                 {
 
-                    if (Input.GetAxis("Topping" + playerNum) != 0)
+                    if (Input.GetAxis("Topping" + playerNum) != 0 && PlayerCheck(playerNum).heldPancake != null)
                     {
 
                         PlayerCheck(playerNum).heldPancake.AddTopping(PancakeToppings.WHIPCREAM);
