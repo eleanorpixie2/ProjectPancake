@@ -18,6 +18,27 @@ public class CharacterControl : MonoBehaviour
     [SerializeField]
     float characterSpeed;
 
+    [SerializeField]
+    float pancakeHoldDistance;
+
+    public Pancake heldPancake
+    {
+        get
+        {
+
+            if (heldItem != null)
+            {
+
+                return heldItem.GetComponent<GamePancake>().thisPancake;
+
+            }
+
+            return null;
+
+        }
+
+    }
+
     public bool isMoving { get; private set; }
     public PlayerDirection _playerDirection { get { return playerDirection; } }
 
@@ -154,6 +175,7 @@ public class CharacterControl : MonoBehaviour
                     if (Input.GetButtonDown("Interact2") && heldItem != null)
                     {
 
+                        heldItem.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
                         heldItem = null;
 
                     }
@@ -175,25 +197,29 @@ public class CharacterControl : MonoBehaviour
             case PlayerDirection.UP:
                 {
 
-                    heldItem.transform.position += new Vector3(0, 1, 0);
+                    heldItem.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
+                    heldItem.transform.position += new Vector3(0, pancakeHoldDistance, 0);
                     break;
                 }
             case PlayerDirection.DOWN:
                 {
 
-                    heldItem.transform.position += new Vector3(0, -1, 0);
+                    heldItem.gameObject.GetComponent<SpriteRenderer>().sortingOrder = this.gameObject.GetComponent<SpriteRenderer>().sortingOrder + 1;
+                    heldItem.transform.position += new Vector3(0, pancakeHoldDistance * -1, 0);
                     break;
                 }
             case PlayerDirection.LEFT:
                 {
 
-                    heldItem.transform.position += new Vector3(-1, 0, 0);
+                    heldItem.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
+                    heldItem.transform.position += new Vector3(pancakeHoldDistance * -1, 0, 0);
                     break;
                 }
             case PlayerDirection.RIGHT:
                 {
 
-                    heldItem.transform.position += new Vector3(1, 0, 0);
+                    heldItem.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
+                    heldItem.transform.position += new Vector3(pancakeHoldDistance, 0, 0);
                     break;
                 }
 
@@ -242,7 +268,7 @@ public class CharacterControl : MonoBehaviour
             case PlayerNumber.PLAYER_ONE:
                 {
 
-                    if (Input.GetButtonDown("DropPancake1") && collision.tag == "Pancake")
+                    if (Input.GetButtonDown("DropPancake1") && collision.tag == "PancakePickup")
                     {
 
                         heldItem = collision.gameObject;
@@ -253,7 +279,7 @@ public class CharacterControl : MonoBehaviour
             case PlayerNumber.PLAYER_TWO:
                 {
 
-                    if (Input.GetButtonDown("DropPancake2") && collision.tag == "Pancake")
+                    if (Input.GetButtonDown("DropPancake2") && collision.tag == "PancakePickup")
                     {
 
                         heldItem = collision.gameObject;

@@ -17,7 +17,27 @@ public class PlayerAnimator : MonoBehaviour {
         // Animate player 1.
         if (!player1.gameObject.GetComponent<CharacterControl>().isMoving)
         {
-            player1.Play("Idle");
+
+            switch (player1.gameObject.GetComponent<CharacterControl>()._playerDirection)
+            {
+                case PlayerDirection.DOWN:
+                    player1.Play("Idle Down");
+                    Debug.Log("1 down");
+                    break;
+                case PlayerDirection.LEFT:
+                    player1.Play("Idle Left");
+                    Debug.Log("1 left");
+                    break;
+                case PlayerDirection.RIGHT:
+                    player1.Play("Idle Right");
+                    Debug.Log("1 right");
+                    break;
+                case PlayerDirection.UP:
+                    player1.Play("Idle Up");
+                    Debug.Log("1 up");
+                    break;
+            }
+
         }
         else
         {
@@ -43,9 +63,27 @@ public class PlayerAnimator : MonoBehaviour {
         }
 
         // Animate player 2.
-        if (player2.gameObject.GetComponent<CharacterControl>().isMoving)
+        if (!player2.gameObject.GetComponent<CharacterControl>().isMoving)
         {
-            player2.Play("Idle");
+            switch (player2.gameObject.GetComponent<CharacterControl>()._playerDirection)
+            {
+                case PlayerDirection.DOWN:
+                    player2.Play("Idle Down");
+                    Debug.Log("1 down");
+                    break;
+                case PlayerDirection.LEFT:
+                    player2.Play("Idle Left");
+                    Debug.Log("1 left");
+                    break;
+                case PlayerDirection.RIGHT:
+                    player2.Play("Idle Right");
+                    Debug.Log("1 right");
+                    break;
+                case PlayerDirection.UP:
+                    player2.Play("Idle Up");
+                    Debug.Log("1 up");
+                    break;
+            }
         }
         else
         {

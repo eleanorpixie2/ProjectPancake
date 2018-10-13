@@ -54,13 +54,22 @@ public class Timer : MonoBehaviour
         // Set the initial timer values.
         lastDecrement = (int)timeLimit;
         secondsRemaining = timeLimit;
-        timerText.text = ((int)secondsRemaining).ToString();
+
+        if (timerText != null)
+        {
+
+            timerText.text = ((int)secondsRemaining).ToString();
+
+        }
+
         isRunning = true;
+
     }
 
 	// Update is called once per frame.
 	void Update ()
     {
+
         if (isRunning)
         {
             secondsRemaining -= Time.deltaTime;
@@ -68,26 +77,51 @@ public class Timer : MonoBehaviour
             if ((int)secondsRemaining != lastDecrement && lastDecrement != 0)
             {
                 lastDecrement--;
-                timerText.text = MinuteSecond((int)secondsRemaining);
 
-                if (secondsRemaining > 30)
+                if (timerText != null)
                 {
-                    timerText.color = timerColor;
+
+                    timerText.text = MinuteSecond((int)secondsRemaining);
+
                 }
-                else if (secondsRemaining > 10)
-                {
-                    timerText.color = lastThirtySecColor;
-                }
-                else
-                {
-                    timerText.color = lastTenSecColor;
-                    if (pulse != null)
-                    {
-                        pulse.Play(stateName);
-                    }
-                }
+
             }
+
         }
+
+        seconds = (int)secondsRemaining;
+
+        if (timerText != null)
+        {
+
+            UITimerEffects();
+
+        }
+
+    }
+
+    public void UITimerEffects()
+    {
+
+        if (secondsRemaining > 30)
+        {
+            timerText.color = timerColor;
+        }
+        else if (secondsRemaining > 10)
+        {
+            timerText.color = lastThirtySecColor;
+        }
+        else
+        {
+
+            timerText.color = lastTenSecColor;
+            if (pulse != null)
+            {
+                pulse.Play(stateName);
+            }
+
+        }
+
     }
 
     // Convert seconds to minute-second format
