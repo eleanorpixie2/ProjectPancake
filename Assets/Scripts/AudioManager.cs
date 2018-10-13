@@ -35,6 +35,7 @@ public class AudioManager : MonoBehaviour
 
     private bool inMenu = true;
 
+    // Call this when the main menu is loaded
     public void PlayMenu()
     {
         inMenu = true;
@@ -42,8 +43,11 @@ public class AudioManager : MonoBehaviour
         source.Play();
         source2.Stop();
     }
-    public void PlayGame(Timer timerGame)
+
+    // Call this as the game is starting (pass the game timer)
+    public void PlayGame(Timer _gameTimer)
     {
+        gameTimer = _gameTimer;
         inMenuTransition = true;
         menuTransition1 = false;
         menuTransitionStartTime = Time.time;
