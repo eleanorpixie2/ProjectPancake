@@ -197,7 +197,7 @@ public class CharacterControl : MonoBehaviour
             case PlayerDirection.UP:
                 {
 
-                    heldItem.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
+                    heldItem.gameObject.GetComponent<SpriteRenderer>().sortingOrder = this.gameObject.GetComponent<SpriteRenderer>().sortingOrder -1;
                     heldItem.transform.position += new Vector3(0, pancakeHoldDistance, 0);
                     break;
                 }
@@ -211,14 +211,14 @@ public class CharacterControl : MonoBehaviour
             case PlayerDirection.LEFT:
                 {
 
-                    heldItem.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
+                    heldItem.gameObject.GetComponent<SpriteRenderer>().sortingOrder = this.gameObject.GetComponent<SpriteRenderer>().sortingOrder - 1;
                     heldItem.transform.position += new Vector3(pancakeHoldDistance * -1, 0, 0);
                     break;
                 }
             case PlayerDirection.RIGHT:
                 {
 
-                    heldItem.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
+                    heldItem.gameObject.GetComponent<SpriteRenderer>().sortingOrder = this.gameObject.GetComponent<SpriteRenderer>().sortingOrder - 1;
                     heldItem.transform.position += new Vector3(pancakeHoldDistance, 0, 0);
                     break;
                 }
@@ -268,7 +268,14 @@ public class CharacterControl : MonoBehaviour
             case PlayerNumber.PLAYER_ONE:
                 {
 
-                    if (Input.GetButtonDown("DropPancake1") && collision.tag == "PancakePickup")
+                    if (Input.GetButtonDown("DropPancake1") && collision.tag == "PancakePickup" && heldItem == null)
+                    {
+
+                        GameObject NewPancake = Instantiate(Resources.Load<GameObject>("Prefabs/Pancake"));
+                        heldItem = NewPancake;
+
+                    }
+                    if (Input.GetButtonDown("DropPancake1") && collision.tag == "Pancake" && heldItem == null)
                     {
 
                         heldItem = collision.gameObject;
@@ -279,7 +286,14 @@ public class CharacterControl : MonoBehaviour
             case PlayerNumber.PLAYER_TWO:
                 {
 
-                    if (Input.GetButtonDown("DropPancake2") && collision.tag == "PancakePickup")
+                    if (Input.GetButtonDown("DropPancake2") && collision.tag == "PancakePickup" && heldItem == null)
+                    {
+
+                        GameObject NewPancake = Instantiate(Resources.Load<GameObject>("Prefabs/Pancake"));
+                        heldItem = NewPancake;
+
+                    }
+                    if (Input.GetButtonDown("DropPancake2") && collision.tag == "Pancake" && heldItem == null)
                     {
 
                         heldItem = collision.gameObject;

@@ -16,6 +16,7 @@ TagManager:
   - Order3
   - Order4
   - Order5
+  - Pancake
   layers:
   - Default
   - TransparentFX
