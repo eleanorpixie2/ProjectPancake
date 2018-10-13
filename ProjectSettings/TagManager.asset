@@ -53,15 +53,15 @@ TagManager:
   - name: Background
     uniqueID: 2084068301
     locked: 0
-  - name: Player
-    uniqueID: 968130819
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Tables
+  - name: Timer+ Score
     uniqueID: 859216959
     locked: 0
   - name: Interactables
     uniqueID: 1071099851
+    locked: 0
+  - name: Player
+    uniqueID: 968130819
     locked: 0

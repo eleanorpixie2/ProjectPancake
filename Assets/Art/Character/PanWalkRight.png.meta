@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: afcad9c600a88e7448b20dced35e704d
+guid: 20d8e2c3b830f53459cadb341b8f751f
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Scale_0
-    21300002: Scale_1
-    21300004: Scale_2
-    21300006: Scale_3
+    21300000: PanWalkRight_0
+    21300002: PanWalkRight_1
+    21300004: PanWalkRight_2
+    21300006: PanWalkRight_3
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -1
     wrapU: 1
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -65,7 +65,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -76,7 +76,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -86,7 +86,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Scale_0
+      name: PanWalkRight_0
       rect:
         serializedVersion: 2
         x: 0
@@ -100,13 +100,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9afa721b6885ef041b91b5af747b0d5a
+      spriteID: b2a2faabcd2c3c243ab18885be82287a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scale_1
+      name: PanWalkRight_1
       rect:
         serializedVersion: 2
         x: 32
@@ -120,13 +120,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6289545f4e4cabd41ace5825e4a10f66
+      spriteID: e490e4047012d9645a318aa8d563d6fb
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scale_2
+      name: PanWalkRight_2
       rect:
         serializedVersion: 2
         x: 64
@@ -140,13 +140,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a03b5ad6d448c643994a9cf91be4dda
+      spriteID: b24bccbeb9fbd164ba045dddbbd2966d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scale_3
+      name: PanWalkRight_3
       rect:
         serializedVersion: 2
         x: 96
@@ -160,7 +160,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83c69c45108e69740b82e7723c2c9973
+      spriteID: 0c7b3ab9bc61dc04592d054d4b82b64d
       vertices: []
       indices: 
       edges: []
@@ -168,7 +168,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 6690bd8a22474444289bc3ff2dc8ba98
+    spriteID: d3450480b50fd6941b8daea8e2d2c83b
     vertices: []
     indices: 
     edges: []
