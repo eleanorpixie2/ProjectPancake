@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -35,6 +36,8 @@ public class AudioManager : MonoBehaviour
 
     private bool inMenu = true;
 
+    bool inGame = false;
+
     // Call this when the main menu is loaded
     public void PlayMenu()
     {
@@ -61,6 +64,12 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(gameObject);
+
+        if (FindObjectsOfType<AudioManager>().Length > 1)
+        {
+            Destroy(this);
+        }
+
         PlayMenu();
     }
 
@@ -70,7 +79,11 @@ public class AudioManager : MonoBehaviour
 
         if (inMenu)
         {
-
+            if (SceneManager.GetActiveScene().name == "Level1" && inGame == false)
+            {
+                inGame = true;
+                PlayGame(GameObject.Find("GameTimer").GetComponent<Timer>());
+            }
         }
         else
         {
