@@ -70,6 +70,8 @@ public class RF_OrderManager : MonoBehaviour
         // check timer count of individual orders
         CheckTimers();
 
+
+
 	}
 
     void CheckTimers()
@@ -158,9 +160,6 @@ public class RF_OrderManager : MonoBehaviour
         // Change order time as necessary
         Order newOrder = new Order(newPancakeOrder, orderCounter, orderTime);
         newOrder.StartOrder();
-
-        // Add new order instance
-        pancakeOrders.Add(newOrder);
 
     }
 
