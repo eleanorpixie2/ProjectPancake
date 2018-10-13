@@ -13,16 +13,14 @@ public class SceneManagement : MonoBehaviour
     public Button ExitButton;
     public Button MenuButton;
     public Button CreditsButton;
-    public Button RestartButton;
-
+ 
 
     // Use this for initialization
     void Start()
     {
         //dont destroy this game object
         DontDestroyOnLoad(this);
-        //set default resolution
-        Screen.SetResolution(1280, 1024, true);
+
         //create code for buttons, buttons only work if there is an object attached to it
         if (StartButton1 != null)
         {
@@ -49,17 +47,14 @@ public class SceneManagement : MonoBehaviour
             Button btn3 = CreditsButton.GetComponent<Button>();
             btn3.onClick.AddListener(TaskOnClick3);
         }
-        if (RestartButton != null)
-        {
-            Button btn4 = RestartButton.GetComponent<Button>();
-            btn4.onClick.AddListener(TaskOnClick4);
-        }
+       
     }
 
     // Update is called once per frame
     void Update()
     {
     }
+
 
     //loads instructions
     void TaskOnClick()
@@ -85,31 +80,12 @@ public class SceneManagement : MonoBehaviour
         SceneManager.LoadScene("Credits");
     }
 
-    //loads checkpoint
-    void TaskOnClick4()
-    {
-        SceneManager.LoadScene("Level" + StatManager.level);
-        StatManager.hasKey = false;
-    }
-
     //loads game
     void TaskOnClick5()
     {
         SceneManager.LoadScene("Level1");
-        StatManager.level = 1;
     }
 
-    //moves through levels as they are completed
-    public static void LevelChange()
-    {
-        if (StatManager.level.Equals(1))
-            SceneManager.LoadScene("Level2");
-        else if (StatManager.level.Equals(2))
-            SceneManager.LoadScene("Level3");
-        else if (StatManager.level.Equals(3))
-            Win();
-        StatManager.level++;
-    }
 
     //loads win scene
     public static void Win()
