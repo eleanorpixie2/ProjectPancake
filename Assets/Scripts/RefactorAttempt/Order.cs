@@ -5,17 +5,25 @@ using UnityEngine;
 public class Order
 {
 
+
+
     // Expected time for pancake to be prepared
     float pancakePreparationTime = 15.0f;
 
     // Requested Pancake to be prepared
     Pancake requestedPancake;
 
+    // Requested Pancake to be prepared
+    public Pancake _requestedPancake { get { return requestedPancake; } }
+
     // Timer to keep track of pancake order expiration
     public Timer pancakeTimer { get; private set; }
 
     // Order number to keep track of the order
     public int orderNumber { get; private set; }
+
+    //
+    public GameObject bindedGameObject { get; private set; }
 
     // Constructor with a simple pancake request
     public Order(Pancake request, int _orderNumber)
@@ -128,6 +136,13 @@ public class Order
         }
 
         return Success;
+
+    }
+
+    public void AssignGameObject(GameObject thisGameObject)
+    {
+
+        bindedGameObject = thisGameObject;
 
     }
 
