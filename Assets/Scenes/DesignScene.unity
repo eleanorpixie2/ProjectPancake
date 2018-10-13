@@ -8063,8 +8063,8 @@ GameObject:
   - component: {fileID: 2029955390}
   - component: {fileID: 2029955392}
   - component: {fileID: 2029955391}
-  - component: {fileID: 2029955393}
   - component: {fileID: 2029955394}
+  - component: {fileID: 2029955393}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Untagged
@@ -8189,7 +8189,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2029955387}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61913072acfd2c547aa71be6a27a0fd3, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d0cf464fcd1d7b47af05dc33644f1ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerNum: 1
@@ -8226,7 +8226,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2091360883
 Transform:
   m_ObjectHideFlags: 0

@@ -6,18 +6,18 @@ public class GamePancake : MonoBehaviour
 {
 
     [SerializeField]
-    List<Sprite> pancakeSprites;
-
-    [SerializeField]
     List<string> toppings;
 
     public Pancake thisPancake { get; private set; }
+
+   Animator thisAnimator;
 
 	// Use this for initialization
 	void Start ()
     {
 
         thisPancake = new Pancake();
+        thisAnimator = this.gameObject.GetComponent<Animator>();
 
 	}
 	
@@ -31,9 +31,76 @@ public class GamePancake : MonoBehaviour
         {
 
             toppings.Add(thisPancake.toppings[i].ToString());
+            AddTopping(thisPancake.toppings[i]);
 
         }
 
 	}
+
+    void AddTopping(PancakeToppings toppingToAdd)
+    {
+
+        switch(toppingToAdd)
+        {
+
+            case PancakeToppings.BLUBERRIES:
+                {
+
+                    if (!thisAnimator.GetBool("hasBlueberries"))
+                    {
+
+                        thisAnimator.SetBool("hasBlueberries", true);
+
+                    }
+                    break;
+                }
+            case PancakeToppings.CHOC_CHIPS:
+                {
+
+                    if (!thisAnimator.GetBool("hasChocChips"))
+                    {
+
+                        thisAnimator.SetBool("hasChocChips", true);
+
+                    }
+                    break;
+                }
+            case PancakeToppings.PECANS:
+                {
+
+                    if (!thisAnimator.GetBool("hasPecans"))
+                    {
+
+                        thisAnimator.SetBool("hasPecans", true);
+
+                    }
+                    break;
+                }
+            case PancakeToppings.SYRUP:
+                {
+
+                    if (!thisAnimator.GetBool("hasSyrup"))
+                    {
+
+                        thisAnimator.SetBool("hasSyrup", true);
+
+                    }
+                    break;
+                }
+            case PancakeToppings.WHIPCREAM:
+                {
+
+                    if (!thisAnimator.GetBool("hasWhipCream"))
+                    {
+
+                        thisAnimator.SetBool("hasWhipCream", true);
+
+                    }
+                    break;
+                }
+
+        }
+
+    }
 
 }
