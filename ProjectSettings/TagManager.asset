@@ -3,7 +3,19 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Timer
+  - Blueberries
+  - Nuts
+  - Syrup
+  - ChocoChips
+  - Whipcream
+  - PancakePickup
+  - Order1
+  - Order2
+  - Order3
+  - Order4
+  - Order5
   layers:
   - Default
   - TransparentFX
@@ -13,7 +25,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - background
   - 
   - 
   - 
@@ -38,6 +50,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2084068301
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Timer+ Score
+    uniqueID: 859216959
+    locked: 0
+  - name: Interactables
+    uniqueID: 1071099851
+    locked: 0
+  - name: Player
+    uniqueID: 968130819
     locked: 0
