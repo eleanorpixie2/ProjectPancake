@@ -937,7 +937,7 @@ MonoBehaviour:
   pulse: {fileID: 1105146559}
   stateName: PulsateTimer
   test: 1
-  seconds: 15
+  seconds: 20
 --- !u!95 &1105146559
 Animator:
   serializedVersion: 3
@@ -1088,7 +1088,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.074635215, y: 0.09}
   m_AnchorMax: {x: 0.35435173, y: 0.19}
-  m_AnchoredPosition: {x: -237.5412, y: -191.16}
+  m_AnchoredPosition: {x: -237.54099, y: -191.16}
   m_SizeDelta: {x: 232.72409, y: 53.099995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1405407340
@@ -1563,7 +1563,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.074635215, y: 0.19336812}
   m_AnchorMax: {x: 0.35435173, y: 0.2925067}
-  m_AnchoredPosition: {x: -237.5412, y: -136.50035}
+  m_AnchoredPosition: {x: -237.54099, y: -136.50046}
   m_SizeDelta: {x: 232.72412, y: 52.642586}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2071368557
