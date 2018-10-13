@@ -13,6 +13,15 @@ public class RF_OrderManager : MonoBehaviour
 #endif
 
     [SerializeField]
+    Timer GlobalTimer;
+
+    [SerializeField]
+    List<GameObject> blueOrderList;
+
+    [SerializeField]
+    List<GameObject> redOrderList;
+
+    [SerializeField]
     int orderTime = 30;
 
     [SerializeField]
@@ -27,8 +36,6 @@ public class RF_OrderManager : MonoBehaviour
     List<Order> pancakeOrders;
 
     public int orderCounter { get; private set; }
-
-    Timer GlobalTimer;
 
     System.Random rnd;
 
@@ -69,8 +76,6 @@ public class RF_OrderManager : MonoBehaviour
 #endif
         // check timer count of individual orders
         CheckTimers();
-
-
 
 	}
 
@@ -159,6 +164,7 @@ public class RF_OrderManager : MonoBehaviour
         // Create order instance
         // Change order time as necessary
         Order newOrder = new Order(newPancakeOrder, orderCounter, orderTime);
+        BindToOrderGameobject(newOrder);
         newOrder.StartOrder();
 
     }
@@ -184,8 +190,39 @@ public class RF_OrderManager : MonoBehaviour
         if (orderIndexToRemove != -1)
         {
 
+            pancakeOrders[orderIndexToRemove].bindedGameObject.GetComponent<GameOrder>().RemoveOrder();
             pancakeOrders[orderIndexToRemove].DeleteTimer();
             pancakeOrders.RemoveAt(orderIndexToRemove);
+
+        }
+
+    }
+
+    void BindToOrderGameobject(Order orderToBind)
+    {
+
+        for (int i = 0; i < redOrderList.Count; i++)
+        {
+
+            if (redOrderList[i].GetComponent<GameOrder>().thisOrder == null)
+            {
+
+                redOrderList[i].GetComponent<GameOrder>().AssignOrder(orderToBind);
+                break;
+            }
+
+        }
+
+        for (int i = 0; i < blueOrderList.Count; i++)
+        {
+
+            if (blueOrderList[i].GetComponent<GameOrder>().thisOrder == null)
+            {
+
+                blueOrderList[i].GetComponent<GameOrder>().AssignOrder(orderToBind);
+                break;
+            }
+
 
         }
 
