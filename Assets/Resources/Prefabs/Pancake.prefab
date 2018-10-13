@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212642073393250498}
   - component: {fileID: 58605564727342160}
   - component: {fileID: 114414071114454686}
+  - component: {fileID: 95685944165787284}
   m_Layer: 0
   m_Name: Pancake
   m_TagString: Pancake
@@ -57,6 +58,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
+--- !u!95 &95685944165787284
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1800953637335572}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c573674df63965a48af30a09f46910bb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114414071114454686
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -68,7 +87,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e7f3dd8cb05daa4ab73b50484b0288e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pancakeSprites: []
   toppings: []
 --- !u!212 &212642073393250498
 SpriteRenderer:

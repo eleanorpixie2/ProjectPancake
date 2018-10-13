@@ -5,19 +5,19 @@ using UnityEngine;
 public class RF_CollisionManager : MonoBehaviour
 {
 
-    [SerializeField]
-    CharacterControl Player1;
-
-    [SerializeField]
-    CharacterControl Player2;
 
     [SerializeField]
     int playerNum;
 
+    CharacterControl Player;
+
+
     // Use this for initialization
     void Start ()
     {
-		
+
+        Player = this.gameObject.GetComponent<CharacterControl>();
+
 	}
 
     // Update is called once per frame
@@ -35,10 +35,10 @@ public class RF_CollisionManager : MonoBehaviour
             case "Blueberries":
                 {
 
-                    if (Input.GetAxis("Topping" + playerNum) != 0 && PlayerCheck(playerNum).heldPancake != null)
+                    if (Input.GetAxis("Topping" + playerNum) != 0 && Player.heldPancake != null && !Player.heldPancake.toppings.Contains(PancakeToppings.BLUBERRIES))
                     {
 
-                        PlayerCheck(playerNum).heldPancake.AddTopping(PancakeToppings.BLUBERRIES);
+                        Player.heldPancake.AddTopping(PancakeToppings.BLUBERRIES);
 
                     }
 
@@ -47,10 +47,10 @@ public class RF_CollisionManager : MonoBehaviour
             case "Syrup":
                 {
 
-                    if (Input.GetAxis("Topping" + playerNum) != 0 && PlayerCheck(playerNum).heldPancake != null)
+                    if (Input.GetAxis("Topping" + playerNum) != 0 && Player.heldPancake != null && !Player.heldPancake.toppings.Contains(PancakeToppings.SYRUP))
                     {
 
-                        PlayerCheck(playerNum).heldPancake.AddTopping(PancakeToppings.SYRUP);
+                        Player.heldPancake.AddTopping(PancakeToppings.SYRUP);
 
                     }
                     break;
@@ -58,10 +58,10 @@ public class RF_CollisionManager : MonoBehaviour
             case "Nuts":
                 {
 
-                    if (Input.GetAxis("Topping" + playerNum) != 0 && PlayerCheck(playerNum).heldPancake != null)
+                    if (Input.GetAxis("Topping" + playerNum) != 0 && Player.heldPancake != null && !Player.heldPancake.toppings.Contains(PancakeToppings.PECANS))
                     {
 
-                        PlayerCheck(playerNum).heldPancake.AddTopping(PancakeToppings.PECANS);
+                        Player.heldPancake.AddTopping(PancakeToppings.PECANS);
 
                     }
                     break;
@@ -69,10 +69,10 @@ public class RF_CollisionManager : MonoBehaviour
             case "ChocoChips":
                 {
 
-                    if (Input.GetAxis("Topping" + playerNum) != 0 && PlayerCheck(playerNum).heldPancake != null)
+                    if (Input.GetAxis("Topping" + playerNum) != 0 && Player.heldPancake != null && !Player.heldPancake.toppings.Contains(PancakeToppings.CHOC_CHIPS))
                     {
 
-                        PlayerCheck(playerNum).heldPancake.AddTopping(PancakeToppings.CHOC_CHIPS);
+                        Player.heldPancake.AddTopping(PancakeToppings.CHOC_CHIPS);
 
                     }
                     break;
@@ -80,32 +80,14 @@ public class RF_CollisionManager : MonoBehaviour
             case "Whipcream":
                 {
 
-                    if (Input.GetAxis("Topping" + playerNum) != 0 && PlayerCheck(playerNum).heldPancake != null)
+                    if (Input.GetAxis("Topping" + playerNum) != 0 && Player.heldPancake != null && !Player.heldPancake.toppings.Contains(PancakeToppings.WHIPCREAM))
                     {
 
-                        PlayerCheck(playerNum).heldPancake.AddTopping(PancakeToppings.WHIPCREAM);
+                        Player.heldPancake.AddTopping(PancakeToppings.WHIPCREAM);
 
                     }
                     break;
                 }
-
-        }
-
-    }
-
-    CharacterControl PlayerCheck(int pNum)
-    {
-
-        if (pNum == 1)
-        {
-
-            return Player1;
-
-        }
-        else
-        {
-
-            return Player2;
 
         }
 
